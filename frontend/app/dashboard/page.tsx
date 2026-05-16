@@ -171,10 +171,15 @@ export default function Dashboard() {
                 </div>
                 <h3 className="text-2xl font-bold mb-2">Upload Files</h3>
                 <p className="text-gray-500 mb-8 leading-relaxed">Drag and drop raw footage up to 2GB. Supports MP4, MOV, and AVI.</p>
-                <div className="flex items-center space-x-2 text-purple-400 font-bold text-sm cursor-pointer hover:underline">
+                <label className="flex items-center space-x-2 text-purple-400 font-bold text-sm cursor-pointer hover:underline w-fit">
                   <span>Browse local files</span>
                   <ArrowRight size={16} />
-                </div>
+                  <input type="file" className="hidden" accept="video/mp4,video/quicktime,video/x-msvideo" onChange={(e) => {
+                    if (e.target.files && e.target.files.length > 0) {
+                      alert("Local file upload is currently in development. Please use the YouTube import for now.");
+                    }
+                  }} />
+                </label>
               </div>
             </motion.div>
 
